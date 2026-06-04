@@ -1,0 +1,19 @@
+# CCS / TI build outputs
+*.obj
+*.d
+*.d_raw
+*.out
+*.map
+*_linkInfo.xml
+*.lib
+
+# Generated temporary build folders/files
+Debug/
+Release/
+RAM/
+FLASH/
+.metadata/
+
+# OS/editor noise
+Thumbs.db
+.DS_Store
