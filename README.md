@@ -1,73 +1,73 @@
 # F28388D_Empty_Project
 
-Public reusable TI C2000 F28388D empty-project baseline.
+可重複使用的 TI C2000 F28388D empty-project baseline。
 
-This repository is intended as a clean starting point for new F28388D CPU1 / CPU2 / CM / CLA firmware work. It is a template-style project, not evidence that any target board or application has passed hardware validation.
+這個 repo 是給新的 F28388D CPU1 / CPU2 / CM / CLA firmware work 使用的乾淨起始點。它是 template-style project，不代表任何 target board 或 application 已通過 hardware validation。
 
-## Repository Role
+## 1. Repository 角色
 
-- **Purpose:** public reusable F28388D project template.
-- **Status:** baseline/template repository.
-- **Visibility:** public.
-- **Scope:** build configuration, device initialization, SysConfig integration, and placeholder application structure.
-- **Production status:** not production firmware and not an ASR5K source of truth.
+- **用途：** public reusable F28388D project template。
+- **狀態：** baseline / template repository。
+- **可見性：** public。
+- **範圍：** build configuration、device initialization、SysConfig integration、placeholder application structure。
+- **正式產品狀態：** 不是 production firmware，也不是 ASR5K source of truth。
 
-## Target Platform
+## 2. Target platform
 
-- **MCU:** Texas Instruments C2000 F28388D
-- **IDE:** Code Composer Studio v12 or newer
-- **SDK:** TI C2000Ware / DriverLib
-- **ABI:** EABI
-- **Configuration:** TI SysConfig
+- **MCU：** Texas Instruments C2000 F28388D
+- **IDE：** Code Composer Studio v12 或更新版本
+- **SDK：** TI C2000Ware / DriverLib
+- **ABI：** EABI
+- **Configuration：** TI SysConfig
 
-## Intended Use
+## 3. Intended use
 
-Use this repository when you need:
+需要下列用途時，可使用此 repo：
 
-- a clean CCS import baseline
-- a new F28388D firmware starting point
-- a minimal structure before adding board-specific peripherals
-- a reference project before creating application-specific repositories
+- clean CCS import baseline
+- new F28388D firmware starting point
+- 加入 board-specific peripherals 前的 minimal structure
+- 建立 application-specific repository 前的 reference project
 
-Do not use it as:
+不要把它當成：
 
-- a validated hardware board support package
-- a production firmware release
-- a replacement for a project-specific bring-up repository
-- proof that any target board pinout is correct
+- 已驗證的 hardware board support package
+- production firmware release
+- project-specific bring-up repository 的替代品
+- target board pinout 正確性的證明
 
-## Build Configurations
+## 4. Build configurations
 
-Typical configurations:
+常見 configuration：
 
-- `CPU1_RAM` / `CPU2_RAM`: debug execution from RAM.
-- `CPU1_FLASH` / `CPU2_FLASH`: standalone execution from on-chip Flash.
+- `CPU1_RAM` / `CPU2_RAM`：從 RAM debug execution。
+- `CPU1_FLASH` / `CPU2_FLASH`：從 on-chip Flash standalone execution。
 
-Actual configuration names may depend on the imported CCS project settings.
+實際 configuration names 可能依 imported CCS project settings 而不同。
 
-## Pin Mapping
+## 5. Pin mapping
 
-This is an empty template. Pin assignments must be defined for the target board before hardware use.
+這是 empty template。實際硬體使用前，必須依 target board 定義 pin assignments。
 
 | Pin Name | GPIO | Peripheral | Hardware Connection | Notes |
 | --- | --- | --- | --- | --- |
 | `PIN_X` | `GPIO_XX` | UART / SPI / PWM | TBD | Replace for the target board |
 
-## Starting a New Project
+## 6. Starting a new project
 
-1. Create a new repository from `F28388D_Empty_Project` or copy the project directory.
-2. Rename the CCS projects for the target application.
-3. Import them with `File > Import > C/C++ > CCS Projects`.
-4. Verify the configured C2000Ware and compiler paths.
-5. Update the `.syscfg` files for the target package, clocks, pins, and peripherals.
-6. Implement application logic.
-7. Validate both RAM and Flash builds.
-8. Record the board, wiring, and toolchain versions before hardware testing.
+1. 從 `F28388D_Empty_Project` 建立新 repository，或複製 project directory。
+2. 依 target application 重新命名 CCS projects。
+3. 使用 `File > Import > C/C++ > CCS Projects` 匯入。
+4. 確認 C2000Ware 與 compiler paths。
+5. 更新 `.syscfg` files：package、clocks、pins、peripherals。
+6. 實作 application logic。
+7. 驗證 RAM 與 Flash builds。
+8. hardware testing 前，記錄 board、wiring、toolchain versions。
 
-## Working Rules
+## 7. Working rules
 
-1. Keep generated build output out of version control.
-2. Record required CCS, compiler, C2000Ware, and SysConfig versions.
-3. Do not commit board-specific secrets, credentials, or private hardware documents.
-4. Do not claim hardware validation until the target board has been tested.
-5. Promote application work into a dedicated project repository when it becomes more than a template.
+1. generated build output 不進 version control。
+2. 記錄所需 CCS、compiler、C2000Ware、SysConfig versions。
+3. board-specific 資料應先整理並確認用途後再加入。
+4. 未完成 target board testing 前，不要宣稱 hardware validation。
+5. 當 application work 已超過 template 範圍，應 promotion 到 dedicated project repository。
