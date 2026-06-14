@@ -1,15 +1,18 @@
 # F28388D_Empty_Project
 
-TI C2000 F28388D empty-project baseline for starting CPU1, CPU2, CM, and CLA firmware work.
+Public reusable TI C2000 F28388D empty-project baseline.
 
-## Repository Classification
+This repository is intended as a clean starting point for new F28388D CPU1 / CPU2 / CM / CLA firmware work. It is a template-style project, not evidence that any target board or application has passed hardware validation.
+
+## Repository Role
 
 - **Purpose:** public reusable F28388D project template.
 - **Status:** baseline/template repository.
+- **Visibility:** public.
 - **Scope:** build configuration, device initialization, SysConfig integration, and placeholder application structure.
 - **Production status:** not production firmware and not an ASR5K source of truth.
 
-## Specifications
+## Target Platform
 
 - **MCU:** Texas Instruments C2000 F28388D
 - **IDE:** Code Composer Studio v12 or newer
@@ -17,10 +20,30 @@ TI C2000 F28388D empty-project baseline for starting CPU1, CPU2, CM, and CLA fir
 - **ABI:** EABI
 - **Configuration:** TI SysConfig
 
+## Intended Use
+
+Use this repository when you need:
+
+- a clean CCS import baseline
+- a new F28388D firmware starting point
+- a minimal structure before adding board-specific peripherals
+- a reference project before creating application-specific repositories
+
+Do not use it as:
+
+- a validated hardware board support package
+- a production firmware release
+- a replacement for a project-specific bring-up repository
+- proof that any target board pinout is correct
+
 ## Build Configurations
+
+Typical configurations:
 
 - `CPU1_RAM` / `CPU2_RAM`: debug execution from RAM.
 - `CPU1_FLASH` / `CPU2_FLASH`: standalone execution from on-chip Flash.
+
+Actual configuration names may depend on the imported CCS project settings.
 
 ## Pin Mapping
 
@@ -37,10 +60,14 @@ This is an empty template. Pin assignments must be defined for the target board 
 3. Import them with `File > Import > C/C++ > CCS Projects`.
 4. Verify the configured C2000Ware and compiler paths.
 5. Update the `.syscfg` files for the target package, clocks, pins, and peripherals.
-6. Implement application logic and validate both RAM and Flash builds.
+6. Implement application logic.
+7. Validate both RAM and Flash builds.
+8. Record the board, wiring, and toolchain versions before hardware testing.
 
 ## Working Rules
 
-- Keep generated build output out of version control.
-- Record required CCS, compiler, C2000Ware, and SysConfig versions.
-- Do not use this template as evidence that a target board or application has passed hardware validation.
+1. Keep generated build output out of version control.
+2. Record required CCS, compiler, C2000Ware, and SysConfig versions.
+3. Do not commit board-specific secrets, credentials, or private hardware documents.
+4. Do not claim hardware validation until the target board has been tested.
+5. Promote application work into a dedicated project repository when it becomes more than a template.
